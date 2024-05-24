@@ -7,17 +7,18 @@
   overflow: hidden;
   flex-wrap: nowrap;
   max-width: 100%;
+  display: grid;
 }
 // the inidividual slides ate just hidden and shown, no fancy transitions
 // Those can be applied in the css file of the slide blocks by using the .active class
 .formo-slider-slide {
-  position: absolute;
-  top: 0;
+  // position all slides on top of each other while still getting the height of the tallest one
+  grid-area: 1 / 1 / 2 / 2; 
+  position: relative;
   z-index: 0;
   opacity: 0;
 }
 .formo-slider-slide:first-child {
-  position: relative;
   z-index: 1;
 }
 .formo-slider-slide.active {
