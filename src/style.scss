@@ -1,0 +1,70 @@
+.formo-slider {
+  position: relative;
+}
+.formo-slider-slides {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  max-width: 100%;
+}
+// the inidividual slides ate just hidden and shown, no fancy transitions
+// Those can be applied in the css file of the slide blocks by using the .active class
+.formo-slider-slide {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  opacity: 0;
+}
+.formo-slider-slide:first-child {
+  position: relative;
+  z-index: 1;
+}
+.formo-slider-slide.active {
+  z-index: 2;
+  opacity: 1;
+}
+.sliderNav {
+  position: absolute;
+  left: var(--wp--custom--width--col-4);
+  bottom: 6rem;
+  width: var(--wp--custom--width--col-8);
+  text-align: center;
+  z-index: 4;
+}
+.slideNavButton {
+  display: inline-block;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--wp--preset--color--formo-cream);
+  border-radius: 50%;
+  background-color: transparent;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.slideNavButton:last-child {
+  margin-right: 0;
+}
+.button-active {
+  background-color: var(--wp--preset--color--formo-cream);
+}
+@media screen and (max-width: 782px){
+  .formo-slider {
+    margin: 2em 0;
+  }
+  .formo-slider-slide {
+    width: calc(100vw - 2 * var(--wp--custom--spacing--outer));
+  }
+  .sliderNav {
+    left: 0;
+    bottom: auto;
+    top: var(--wp--custom--spacing--outer);
+    width: calc(100% - var(--wp--custom--spacing--outer));
+    text-align: right;
+  }
+  .slideNavButton {
+    width: clamp(30px, 7vw, 45px);
+    height: clamp(30px, 7vw, 45px);
+  }
+}
