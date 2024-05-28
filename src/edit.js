@@ -1,20 +1,19 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl } from '@wordpress/components';
+import { PanelBody, TextControl, SelectControl } from '@wordpress/components';
 import './editor.scss';
+import { useState } from '@wordpress/element';
 
 export default function Edit({attributes, setAttributes}) {
+
+  const [position, setPosition] = useState(attributes.bulletposition);
+
 	return (
 		<div { ...useBlockProps(
       {className: 'formo-slider'}
     ) }>
 			<InnerBlocks 
-        allowedBlocks={['create-block/formo-slider-slide-cheese']}
-        template={[
-          ['create-block/formo-slider-slide-cheese'],
-          ['create-block/formo-slider-slide-cheese'],
-          ['create-block/formo-slider-slide-cheese'],
-        ]}
+        allowedBlocks={['create-block/formo-slider-slide-cheese', 'create-block/formo-slider-slide-recipe']}
       />
       <InspectorControls>
         <PanelBody title={__('Slider Settings')}>
@@ -27,6 +26,19 @@ export default function Edit({attributes, setAttributes}) {
               setAttributes({delay: value});
             }}
           />
+          <SelectControl
+              label="Bullet position"
+              value={ position }
+              options={ [
+                  { label: 'Bullets on the right', value: 'bullets-right' },
+                  { label: 'Bullets in the center', value: 'bullets-center' },
+              ] }
+              onChange={ ( value ) => { 
+                setAttributes( { bulletposition: value } );
+                setPosition( value );
+              } }
+          />
+
         </PanelBody>
       </InspectorControls>
 		</div>

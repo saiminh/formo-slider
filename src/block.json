@@ -15,6 +15,10 @@
     "delay": {
       "type": "string",
       "default": "5"
+    },
+    "bulletposition": {
+      "type": "string",
+      "default": "bullets-right"
     }
   },
 	"textdomain": "formo-slider",

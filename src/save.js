@@ -16,6 +16,12 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save({attributes}) {
+
+  const navClassNames = [
+    'sliderNav',
+    attributes.bulletposition
+  ].join(' ');
+
 	return (
 		<div { ...useBlockProps.save(
       {
@@ -26,7 +32,7 @@ export default function save({attributes}) {
       <div className='formo-slider-slides'>
         <InnerBlocks.Content />
       </div>
-      <nav className='sliderNav'></nav>
+      <nav className={navClassNames}></nav>
 		</div>
 	);
 }
