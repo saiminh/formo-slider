@@ -13,7 +13,7 @@ export default function Edit({attributes, setAttributes}) {
       {className: 'formo-slider'}
     ) }>
 			<InnerBlocks 
-        allowedBlocks={['create-block/formo-slider-slide-cheese', 'create-block/formo-slider-slide-recipe']}
+        allowedBlocks={['create-block/formo-slider-slide-cheese']}
       />
       <InspectorControls>
         <PanelBody title={__('Slider Settings')}>
